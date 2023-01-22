@@ -9,11 +9,7 @@ symbols = '!$%^&*-'
 
 
 def entropy(p: list[int]) -> float:
-    entropy = 0.0
-    for l in p:
-        entropy += -math.log2(1/l)
-
-    return entropy
+    return sum(-math.log2(1/l) for l in p)
 
 
 def gen(nsyllables=4, nsymbols=1, nnumbers=2):
