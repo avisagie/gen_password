@@ -8,8 +8,8 @@ numbers = '1234567890'
 symbols = '!$%^&*-'
 
 
-def entropy(p):
-    entropy = 0
+def entropy(p: list[int]) -> float:
+    entropy = 0.0
     for l in p:
         entropy += -math.log2(1/l)
 
@@ -17,7 +17,7 @@ def entropy(p):
 
 
 def gen(nsyllables=4, nsymbols=1, nnumbers=2):
-    def add(lengths, options):
+    def add(lengths: list[int], options: str):
         lengths.append(len(options))
         return secrets.choice(options)
 
