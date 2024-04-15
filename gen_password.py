@@ -25,6 +25,7 @@ def gen(nsyllables=4, nsymbols=1, nnumbers=3):
     for x in range(nsyllables):
         pwd += add(lengths, consonants)
         pwd += add(lengths, vowels_lower)
+        pwd += add(lengths, vowels_lower+consonants_lower)
 
     # symbol
     for x in range(nsymbols):
