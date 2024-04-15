@@ -9,12 +9,12 @@ numbers = '1234567890'
 symbols = '!$%^&*-'
 
 
-def entropy(p):
+def entropy(p: list[int]) -> float:
     return sum(-math.log2(1/l) for l in p)
 
 
 def gen(nsyllables=4, nsymbols=1, nnumbers=3):
-    def add(lengths, options):
+    def add(lengths: list[int], options: str):
         lengths.append(len(options))
         return secrets.choice(options)
 
