@@ -1,9 +1,10 @@
 import secrets
 import math
 
-consonants = 'cdfghjklmnpqrstvwxyz'
-consonants += consonants.upper()
-vowels = 'aeiouy'
+consonants_lower = 'cdfghjklmnpqrstvwxyz'
+consonants = consonants_lower.upper() + consonants_lower
+vowels_lower = 'aeiouy'
+vowels = vowels_lower.upper() + vowels_lower
 numbers = '1234567890'
 symbols = '!$%^&*-'
 
@@ -12,7 +13,7 @@ def entropy(p):
     return sum(-math.log2(1/l) for l in p)
 
 
-def gen(nsyllables=4, nsymbols=1, nnumbers=2):
+def gen(nsyllables=4, nsymbols=1, nnumbers=3):
     def add(lengths, options):
         lengths.append(len(options))
         return secrets.choice(options)
@@ -23,7 +24,7 @@ def gen(nsyllables=4, nsymbols=1, nnumbers=2):
     # "syllables"
     for x in range(nsyllables):
         pwd += add(lengths, consonants)
-        pwd += add(lengths, vowels)
+        pwd += add(lengths, vowels_lower)
 
     # symbol
     for x in range(nsymbols):
