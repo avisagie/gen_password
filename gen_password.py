@@ -10,10 +10,11 @@ symbols = '!$%^&*-'
 
 
 def entropy(p: list[int]) -> float:
-    return sum(-math.log2(1/l) for l in p)
+    """Return entropy in bits given a list of per-position choice counts."""
+    return sum(math.log2(l) for l in p)
 
 
-def gen(nsyllables=4, nsymbols=1, nnumbers=3):
+def gen(nsyllables=3, nsymbols=1, nnumbers=5):
     def add(lengths: list[int], options: str):
         lengths.append(len(options))
         return secrets.choice(options)
